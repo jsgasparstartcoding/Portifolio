@@ -1,0 +1,560 @@
+/* ============================================
+   RESET BÁSICO
+   Removemos margens e paddings padrão do navegador
+   para termos controle total do layout.
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   VARIÁVEIS DE COR (paleta cozy)
+============================================ */
+:root {
+  --cor-fundo: #faf6f0;          /* creme/off-white */
+  --cor-fundo-alt: #f3ede2;      /* creme mais quente */
+  --cor-salvia: #a8b5a0;         /* verde sálvia */
+  --cor-salvia-escura: #7a8a72;
+  --cor-terracota: #d9a89a;      /* rosa/terracota suave */
+  --cor-terracota-escura: #b8806f;
+  --cor-texto: #5c4a3d;          /* marrom para textos */
+  --cor-texto-suave: #8a7666;
+  --cor-borda: #e8ddc9;
+  --cor-branco: #ffffff;
+
+  --fonte-titulo: 'Fraunces', Georgia, serif;
+  --fonte-texto: 'Nunito', system-ui, sans-serif;
+
+  --raio: 16px;
+  --raio-pequeno: 8px;
+  --sombra-suave: 0 4px 20px rgba(92, 74, 61, 0.06);
+  --sombra-media: 0 8px 30px rgba(92, 74, 61, 0.1);
+}
+
+/* ============================================
+   BASE
+============================================ */
+body {
+  font-family: var(--fonte-texto);
+  font-weight: 300;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--cor-texto);
+}
+
+a {
+  color: var(--cor-terracota-escura);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--cor-salvia-escura);
+}
+
+/* ============================================
+   HEADER
+============================================ */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 24px 32px;
+  text-align: center;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.site-header__logo {
+  font-size: 2.4rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cor-salvia-escura);
+  letter-spacing: 0.5px;
+}
+
+.site-header__tagline {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  color: var(--cor-texto-suave);
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.site-nav__list a {
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.site-nav__list a:hover {
+  color: var(--cor-salvia-escura);
+  border-bottom-color: var(--cor-salvia);
+}
+
+/* ============================================
+   MAIN + SEÇÕES (espaçamento geral)
+============================================ */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header__eyebrow {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  color: var(--cor-terracota-escura);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.section-header__title {
+  font-size: 2rem;
+  color: var(--cor-texto);
+}
+
+/* ============================================
+   HERO
+============================================ */
+.hero {
+  text-align: center;
+  padding: 80px 0 100px;
+}
+
+.hero__eyebrow {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  color: var(--cor-salvia-escura);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--cor-texto);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.hero__text {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: var(--cor-texto-suave);
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ============================================
+   BOTÃO
+============================================ */
+.button {
+  display: inline-block;
+  background-color: var(--cor-salvia);
+  color: var(--cor-branco);
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: var(--fonte-texto);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: var(--sombra-suave);
+}
+
+.button:hover {
+  background-color: var(--cor-salvia-escura);
+  color: var(--cor-branco);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   PRÁTICAS (3 cards)
+============================================ */
+.practices__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.practice-card {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.practice-card__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.practice-card__title {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--cor-salvia-escura);
+}
+
+.practice-card__text {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   CHECKLIST (Antes de uma conversa)
+============================================ */
+.checklist {
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--raio);
+  padding: 60px 40px;
+  margin: 40px 0;
+}
+
+.checklist__list {
+  list-style: none;
+  counter-reset: item;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.checklist__list li {
+  counter-increment: item;
+  position: relative;
+  padding: 16px 0 16px 48px;
+  border-bottom: 1px dashed var(--cor-borda);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+}
+
+.checklist__list li:last-child {
+  border-bottom: none;
+}
+
+.checklist__list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--cor-salvia);
+  color: var(--cor-branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-texto);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+/* ============================================
+   CARDS DE REFLEXÃO
+============================================ */
+.section-header__subtitle {
+  max-width: 520px;
+  margin: 16px auto 0;
+  color: var(--cor-texto-suave);
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.reflection-card {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 32px 28px;
+  box-shadow: var(--sombra-suave);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reflection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.reflection-card__number {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--cor-terracota-escura);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.reflection-card__question {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.reflection-card__hint {
+  color: var(--cor-texto-suave);
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+/* ============================================
+   LEMBRETES (Reflexões)
+============================================ */
+.reminders__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reminder-card {
+  background-color: var(--cor-fundo-alt);
+  border-left: 3px solid var(--cor-terracota);
+  border-radius: var(--raio-pequeno);
+  padding: 28px 24px;
+}
+
+.reminder-card__title {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.reminder-card__text {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   EXERCÍCIO
+============================================ */
+.exercise {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.exercise__intro {
+  color: var(--cor-texto-suave);
+  margin-bottom: 24px;
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+}
+
+.exercise__prompt {
+  max-width: 560px;
+  margin: 0 auto;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 32px;
+  box-shadow: var(--sombra-suave);
+}
+
+.exercise__phrase {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--cor-terracota-escura);
+  margin-bottom: 20px;
+}
+
+.exercise__space {
+  height: 120px;
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 28px,
+    var(--cor-borda) 28px,
+    var(--cor-borda) 29px
+  );
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.site-footer {
+  text-align: center;
+  padding: 60px 24px 40px;
+  border-top: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo-alt);
+}
+
+.site-footer__logo {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--cor-salvia-escura);
+  margin-bottom: 8px;
+}
+
+.site-footer__tagline {
+  color: var(--cor-texto-suave);
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+  margin-bottom: 16px;
+}
+
+.site-footer__link a {
+  color: var(--cor-terracota-escura);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--cor-terracota);
+  padding-bottom: 2px;
+}
+
+.site-footer__link a:hover {
+  color: var(--cor-salvia-escura);
+  border-bottom-color: var(--cor-salvia);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+============================================ */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 32px 20px 24px;
+  }
+
+  .hero__title {
+    font-size: 2.4rem;
+  }
+
+  .hero__text {
+    font-size: 1rem;
+  }
+
+  .section-header__title {
+    font-size: 1.6rem;
+  }
+
+  .practices__grid,
+  .reminders__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist {
+    padding: 40px 24px;
+  }
+
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav__list {
+    gap: 16px;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .checklist__list li {
+    font-size: 1rem;
+    padding-left: 44px;
+  }
+}
+/* ============================================
+   FLORZINHAS DECORATIVAS (SVG)
+============================================ */
+.flower {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.flower--salvia {
+  color: var(--cor-salvia);
+}
+
+.flower--terracota {
+  color: var(--cor-terracota);
+}
+
+.site-header__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.sprig {
+  display: block;
+  width: 80px;
+  height: 20px;
+  margin: 12px auto 16px;
+  color: var(--cor-salvia);
+  opacity: 0.85;
+}
+
+.site-footer__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}

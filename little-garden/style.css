@@ -1,0 +1,90 @@
+:root {
+  --verde-salvia: #a8bfa3;
+  --verde-escuro: #4a6b4a;
+  --creme: #faf5ec;
+  --rosa-suave: #e8c5c5;
+  --amarelo-manteiga: #f5e6b3;
+  --marrom-claro: #b89f7f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Georgia', serif;
+  background: var(--creme);
+  color: var(--verde-escuro);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 { font-size: 2.5rem; font-weight: normal; }
+header p  { color: var(--marrom-claro); font-style: italic; margin-top: 0.5rem; }
+
+#jardim {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(74, 107, 74, 0.1);
+  border: 2px solid var(--verde-salvia);
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-4px); }
+
+.emoji { font-size: 3.5rem; margin-bottom: 0.5rem; }
+.card h2 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+.especie { color: var(--marrom-claro); font-size: 0.9rem; margin-bottom: 1rem; }
+
+.agua { margin-bottom: 0.8rem; }
+
+.barra {
+  width: 100%;
+  height: 10px;
+  background: var(--amarelo-manteiga);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.3rem;
+}
+
+.preenchimento {
+  height: 100%;
+  background: linear-gradient(90deg, #a8c8e8, #6ba3d8);
+  transition: width 0.4s ease;
+}
+
+.saude { margin: 0.8rem 0; font-size: 0.95rem; }
+
+button {
+  background: var(--verde-salvia);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+button:hover { background: var(--verde-escuro); }
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--marrom-claro);
+  font-style: italic;
+}

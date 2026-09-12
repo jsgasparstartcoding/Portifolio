@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🌷 Book Bouquet</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>🌷 Book Bouquet</h1>
+            <p class="subtitulo">Monte seu buquê literário</p>
+            <p class="descricao">
+                Escolha quantos livros você gostaria de encontrar hoje.
+            </p>
+        </header>
+
+        <section class="controle">
+            <button id="btnMenos" class="btn-quantidade">−</button>
+            <span id="quantidade">3</span>
+            <button id="btnMais" class="btn-quantidade">+</button>
+        </section>
+
+        <button id="btnCriar" class="btn-principal">✨ Criar meu buquê</button>
+
+        <section id="resultado" class="resultado oculto">
+            <h2>Seu buquê de hoje 🌸</h2>
+            <div id="buque" class="buque"></div>
+            <button id="btnNovo" class="btn-secundario">♡ Criar outro buquê</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
